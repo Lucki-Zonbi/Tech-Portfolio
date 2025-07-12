@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const submitButton = form.querySelector("button[type='submit']");
 
-    // ✅ Create a success message container
+    // Create a success message container
     const messageBox = document.createElement("div");
     messageBox.style.marginTop = "1rem";
     messageBox.style.fontSize = "1rem";
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = new FormData(form);
 
-        // 🔒 Disable button and show sending state
+        // Disable button and show sending state
         submitButton.disabled = true;
         submitButton.innerText = "Sending...";
 
@@ -79,28 +79,28 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                // ✅ Success visual feedback
+                // Success visual feedback
                 form.reset();
-                messageBox.innerText = "✅ Message sent successfully!";
+                messageBox.innerText = "Message sent successfully!";
                 messageBox.style.color = "limegreen";
 
-                // 🎉 Animate and hide the form after delay
+                //Animate and hide the form after delay
                 form.style.transition = "opacity 0.5s ease";
                 setTimeout(() => {
                     form.style.opacity = 0;
                 }, 1000);
 
             } else {
-                // ❌ Error feedback
+                // Error feedback
                 messageBox.innerText = "⚠️ Oops! Something went wrong.";
                 messageBox.style.color = "crimson";
             }
         } catch (error) {
-            // ❌ Network or unexpected error
+            // Network or unexpected error
             messageBox.innerText = "❌ Submission failed. Please try again.";
             messageBox.style.color = "red";
         } finally {
-            // 🔓 Re-enable button
+            //Re-enable button
             submitButton.disabled = false;
             submitButton.innerText = "Submit";
         }
