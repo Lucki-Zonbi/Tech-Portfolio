@@ -91,9 +91,9 @@ section {
     display: flex;
     align-items: center;
     padding: 0 9%;
-    background: url('https://icon2.cleanpng.com/lnd/20240531/xww/ayxx1t3ig.webp')no-repeat;
+    background: url('../images/Me 2.png')no-repeat;
     background-size: cover;
-    background-position: calc(-400% - -500px) -150px;
+    background-position: calc(-300% - -500px) -15px;
 }
 
 .home-content {
