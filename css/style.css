@@ -90,11 +90,13 @@ section {
 .home {
     display: flex;
     align-items: center;
-    padding: 0 9%;
-    background: url('../images/Me-2.png')no-repeat;
-    background-size: cover;
-    background-position: calc(-300% - -500px) -15px;
+    justify-content: center;
+    height: 100vh;
+    background: url('../images/Me-2-fixed.png') no-repeat center center;
+    background-size: contain;
+    background-color: black;
 }
+
 
 .home-content {
     max-width: 60rem;
@@ -301,6 +303,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 .about-img img {
@@ -308,7 +311,7 @@ span {
     border-radius: 30%;
     border-top: .2rem solid var(--main-color);
     border-bottom: .2rem solid var(--main-color);
-
+    background-color: transparent;
 }
 
 .about-img .circle-spin {
