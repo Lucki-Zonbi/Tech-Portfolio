@@ -91,7 +91,7 @@ section {
     display: flex;
     align-items: center;
     padding: 0 9%;
-    background: url('../images/Me 2.png')no-repeat;
+    background: url('../images/Me-2.png')no-repeat;
     background-size: cover;
     background-position: calc(-300% - -500px) -15px;
 }
