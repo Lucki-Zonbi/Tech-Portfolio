@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Secure Login Simulation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulated Secure Login</title>
+
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="auth-overlay">
-    <div class="auth-box">
-      <h2>Secure Access</h2>
-      <div id="step1">
-        <input type="text" id="auth-username" placeholder="Username" />
-        <input type="password" id="auth-password" placeholder="Password" />
+  <script defer src="script.js"></script>
 
-        <div id="auth-error"></div>
+  <style>
+    :root {
+      --bg-color: #09011b;
+      --second-bg-color: #f35e8f;
+      --third-bg-color: rgb(252, 39, 120);
+      --fourth-bg-color: rgb(3, 3, 37);
+      --text-color: #ededed;
+      --second-text-color: rgb(136, 8, 57);
+      --main-color: #822794;
+    }
 
-        <button onclick="start2FA()">Login</button>
-        <p id="auth-error" class="auth-error"></p>
-      </div>
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-      <div id="step2" style="display: none;">
-        <p>Your 2FA code is: <span id="code-display"></span></p>
-        <input type="text" id="auth-code" placeholder="Enter 6-digit code" maxlength="6" />
-        <button id="auth-login-btn" onclick="start2FA()">Login</button>
-        <p id="code-error" class="auth-error"></p>
-        <p class="notice">Access will remain active for 24 hours.</p>
-      </div>
-    </div>
-  </div>
+    .container {
+      background-color: var(--fourth-bg-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--main-color);
+      width: 90%;
+      max-width: 400px;
+    }
 
-  <script src="script.js"></script>
-</body>
-</html>
+    h2 {
+      color: var(--main-color);
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    .error {
+      color

@@ -2,98 +2,84 @@ const VALID_USERNAME = "user";
 const VALID_PASSWORD = "secure123";
 let generatedCode = "";
 
-const MAX_ATTEMPTS_15_MIN = 4;
-const MAX_ATTEMPTS_24_HOUR = 8;
-const LOCKOUT_KEY = "lockoutTime";
-const ATTEMPT_KEY = "failedAttempts";
-
-// Check lockout status on page load
+// === On Page Load ===
 window.addEventListener("DOMContentLoaded", () => {
   const authTime = localStorage.getItem("authTime");
-  const now = Date.now();
+  const now = new Date().getTime();
 
-  // Already authenticated?
+  // Bypass login if within 24 hours
   if (authTime && now - parseInt(authTime) < 24 * 60 * 60 * 1000) {
     window.location.href = "../index.html";
   }
 
-  checkLockout();
-});
-
-// Listen for Enter key on login form
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Enter" && document.getElementById("step1").style.display !== "none") {
-    start2FA();
+  // Allow Enter key to trigger verify2FA
+  const codeInput = document.getElementById("auth-code");
+  if (codeInput) {
+    codeInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        verify2FA();
+      }
+    });
   }
 });
 
-function checkLockout() {
-  const lockoutData = JSON.parse(localStorage.getItem(LOCKOUT_KEY));
-  const now = Date.now();
-
-  if (lockoutData) {
-    const { until, type } = lockoutData;
-    if (now < until) {
-      const minsLeft = Math.ceil((until - now) / 60000);
-      alert(`Too many failed login attempts. You are locked out for ${type === '24h' ? '24 hours' : minsLeft + ' minutes'}.`);
-      disableLogin();
-    } else {
-      localStorage.removeItem(LOCKOUT_KEY);
-      localStorage.removeItem(ATTEMPT_KEY);
-    }
-  }
-}
-
-function disableLogin() {
-  document.getElementById("auth-username").disabled = true;
-  document.getElementById("auth-password").disabled = true;
-  document.getElementById("auth-login-btn").disabled = true;
-}
-
+// === Handle Login Step 1 ===
 function start2FA() {
   const user = document.getElementById("auth-username").value;
   const pass = document.getElementById("auth-password").value;
   const error = document.getElementById("auth-error");
+  const loginBtn = document.getElementById("auth-login-btn");
 
-  checkLockout(); // Just in case
+  const now = new Date().getTime();
+  const failCount = parseInt(localStorage.getItem("loginFails")) || 0;
+  const lockUntil = parseInt(localStorage.getItem("loginLockUntil")) || 0;
+
+  if (now < lockUntil) {
+    const waitTime = Math.ceil((lockUntil - now) / 60000);
+    error.textContent = `Too many failed attempts. Try again in ${waitTime} minutes.`;
+    loginBtn.disabled = true;
+    return;
+  }
 
   if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
     error.textContent = "";
     generatedCode = String(Math.floor(100000 + Math.random() * 900000));
+    sessionStorage.setItem("generatedCode", generatedCode);
+
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "block";
     document.getElementById("code-display").textContent = generatedCode;
-    localStorage.removeItem(ATTEMPT_KEY);
   } else {
-    // Handle failed attempt
-    const currentAttempts = parseInt(localStorage.getItem(ATTEMPT_KEY)) || 0;
-    const newAttempts = currentAttempts + 1;
-    localStorage.setItem(ATTEMPT_KEY, newAttempts);
+    const newFailCount = failCount + 1;
+    localStorage.setItem("loginFails", newFailCount.toString());
 
-    if (newAttempts >= MAX_ATTEMPTS_24_HOUR) {
-      const lockoutUntil = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
-      localStorage.setItem(LOCKOUT_KEY, JSON.stringify({ until: lockoutUntil, type: "24h" }));
-      alert("Too many failed attempts. Login disabled for 24 hours.");
-      disableLogin();
-    } else if (newAttempts >= MAX_ATTEMPTS_15_MIN) {
-      const lockoutUntil = Date.now() + 15 * 60 * 1000; // 15 minutes
-      localStorage.setItem(LOCKOUT_KEY, JSON.stringify({ until: lockoutUntil, type: "15min" }));
-      alert("Too many failed attempts. Login disabled for 15 minutes.");
-      disableLogin();
+    if (newFailCount >= 8) {
+      const lockTime = now + 24 * 60 * 60 * 1000;
+      localStorage.setItem("loginLockUntil", lockTime.toString());
+      error.textContent = "Too many failed attempts. You are locked out for 24 hours.";
+    } else if (newFailCount >= 4) {
+      const lockTime = now + 15 * 60 * 1000;
+      localStorage.setItem("loginLockUntil", lockTime.toString());
+      error.textContent = "Too many failed attempts. You are locked out for 15 minutes.";
     } else {
-      error.textContent = `Invalid username or password. (${newAttempts} failed attempt${newAttempts > 1 ? 's' : ''})`;
+      error.textContent = "Invalid username or password.";
     }
   }
 }
 
+// === Handle 2FA Code Verification ===
 function verify2FA() {
   const codeInput = document.getElementById("auth-code").value;
   const error = document.getElementById("code-error");
+  const storedCode = sessionStorage.getItem("generatedCode");
 
-  if (codeInput === generatedCode) {
+  if (codeInput === storedCode) {
     error.textContent = "";
     const now = new Date().getTime();
     localStorage.setItem("authTime", now.toString());
+    localStorage.removeItem("loginFails");
+    localStorage.removeItem("loginLockUntil");
     window.location.href = "../index.html";
   } else {
     error.textContent = "Incorrect code. Try again.";
