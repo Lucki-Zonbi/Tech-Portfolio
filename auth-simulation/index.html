@@ -12,6 +12,9 @@
       <div id="step1">
         <input type="text" id="auth-username" placeholder="Username" />
         <input type="password" id="auth-password" placeholder="Password" />
+
+        <div id="auth-error"></div>
+
         <button onclick="start2FA()">Login</button>
         <p id="auth-error" class="auth-error"></p>
       </div>
@@ -19,7 +22,7 @@
       <div id="step2" style="display: none;">
         <p>Your 2FA code is: <span id="code-display"></span></p>
         <input type="text" id="auth-code" placeholder="Enter 6-digit code" maxlength="6" />
-        <button onclick="verify2FA()">Verify</button>
+        <button id="auth-login-btn" onclick="start2FA()">Login</button>
         <p id="code-error" class="auth-error"></p>
         <p class="notice">Access will remain active for 24 hours.</p>
       </div>
