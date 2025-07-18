@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxi Zonbi</title>
 
+    <script>
+  // Only redirect if login hasn't happened in last 24 hours
+  const authTime = localStorage.getItem("authTime");
+  const now = new Date().getTime();
+
+  if (!authTime || now - parseInt(authTime) > 24 * 60 * 60 * 1000) {
+    window.location.href = "./auth-gate/index.html";
+  }
+</script>
+
     <link rel="stylesheet" href="css/style.css">
     <!-- box icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
