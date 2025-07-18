@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (authTime && now - parseInt(authTime) < 24 * 60 * 60 * 1000) {
     // Within 24 hours
-    window.location.href = "../index.html"; // Redirect to portfolio
+    window.location.href = "/Cybersecurity-Portfolio/index.html"; // Redirect to portfolio
   }
 });
 
@@ -37,7 +37,7 @@ function verify2FA() {
     error.textContent = "";
     const now = new Date().getTime();
     localStorage.setItem("authTime", now.toString());
-    window.location.href = "../index.html";
+    window.location.href = "/Cybersecurity-Portfolio/index.html";
   } else {
     error.textContent = "Incorrect code. Try again.";
   }
