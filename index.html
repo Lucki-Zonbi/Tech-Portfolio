@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxi Zonbi</title>
 
-    <script>
-  // Only redirect if login hasn't happened in last 24 hours
+    <!-- Put this in <head>, before styles or anything else -->
+<script>
   const authTime = localStorage.getItem("authTime");
-  const now = new Date().getTime();
+  const now = Date.now();
 
-  if (!authTime || now - parseInt(authTime) > 24 * 60 * 60 * 1000) {
+  if (!authTime || now - +authTime > 24 * 60 * 60 * 1000) {
     window.location.href = "/Cybersecurity-Portfolio/auth-simulation/index.html";
   }
 </script>
+
 
     <link rel="stylesheet" href="css/style.css">
     <!-- box icons-->
