@@ -84,10 +84,3 @@ function verify2FA() {
     error.textContent = "Incorrect code. Try again.";
   }
 }
-
-function resetAuth() {
-  localStorage.removeItem("authTime");
-  localStorage.removeItem("authAttempts");
-  alert("Login reset. You can try again.");
-  window.location.reload();
-}
