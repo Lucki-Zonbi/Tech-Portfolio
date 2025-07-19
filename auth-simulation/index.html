@@ -4,71 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simulated Secure Login</title>
-
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
-
   <style>
     :root {
       --bg-color: #09011b;
+      --main-color: #822794;
       --second-bg-color: #f35e8f;
       --third-bg-color: rgb(252, 39, 120);
       --fourth-bg-color: rgb(3, 3, 37);
       --text-color: #ededed;
-      --second-text-color: rgb(136, 8, 57);
-      --main-color: #822794;
     }
-
     body {
-      background-color: var(--bg-color);
+      background: var(--bg-color);
       color: var(--text-color);
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
-
     .container {
-      background-color: var(--fourth-bg-color);
-      padding: 30px;
+      background: var(--fourth-bg-color);
+      padding: 2em;
       border-radius: 10px;
-      box-shadow: 0 0 10px var(--main-color);
       width: 90%;
-      max-width: 400px;
-    }
-
-    h2 {
-      color: var(--main-color);
+      max-width: 360px;
+      box-shadow: 0 0 15px var(--main-color);
       text-align: center;
     }
-
-    input[type="text"],
-    input[type="password"] {
+    input {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0 20px;
+      margin: 0.5em 0;
+      padding: 0.75em;
       border: none;
       border-radius: 5px;
     }
-
     button {
       width: 100%;
-      padding: 10px;
-      background-color: var(--main-color);
-      color: white;
+      padding: 0.75em;
+      margin-top: 0.5em;
+      background: var(--main-color);
+      color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 1em;
     }
-
-    button:disabled {
-      background-color: gray;
-      cursor: not-allowed;
-    }
-
     .error {
-      color
+      color: var(--second-bg-color);
+      margin-top: 0.25em;
+      font-size: 0.9em;
+    }
+    #code-display {
+      font-size: 2em;
+      margin: 1em 0;
+      color: var(--third-bg-color);
+    }
+    #reset-btn {
+      margin-top: 1em;
+      background: var(--second-bg-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Step 1 -->
+    <div id="step1">
+      <h2>Login</h2>
+      <input type="text" id="auth-username" placeholder="Username" autocomplete="off"/>
+      <input type="password" id="auth-password" placeholder="Password" autocomplete="off"/>
+      <div id="auth-error" class="error"></div>
+      <button id="auth-login-btn" onclick="start2FA()">Login</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step2" style="display: none;">
+      <h2>Two‑Factor Code</h2>
+      <div id="code-display">000000</div>
+      <input type="text" id="auth-code" placeholder="Enter 6-digit code" maxlength="6"/>
+      <div id="code-error" class="error"></div>
+      <button onclick="verify2FA()">Verify Code</button>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset-btn" onclick="localStorage.removeItem('authTime'); alert('Login memory cleared.'); location.reload();">
+      Reset Login (Dev)
+    </button>
+  </div>
+</body>
+</html>
