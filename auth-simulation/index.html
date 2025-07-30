@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simulated 2FA Login</title>
-
-  <!-- Internal CSS -->
+  <script defer src="script.js"></script>
   <style>
     :root {
       --bg-color: #09011b;
@@ -48,14 +47,22 @@
     input[type="number"] {
       width: 100%;
       padding: 10px;
-      margin: 10px 0 20px;
+      margin: 10px 0;
       border: none;
       border-radius: 5px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
     }
 
     button {
       width: 100%;
       padding: 10px;
+      margin-top: 10px;
       background-color: var(--main-color);
       color: white;
       border: none;
@@ -64,27 +71,34 @@
       font-weight: bold;
     }
 
-    button:disabled {
-      background-color: gray;
-      cursor: not-allowed;
-    }
-
     .error {
       color: red;
-      margin-top: -15px;
+      text-align: center;
       margin-bottom: 10px;
-      font-size: 0.9em;
-    }
-
-    #temp-reset {
-      margin-top: 15px;
-      background-color: #444;
     }
   </style>
-
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- your body content here -->
+  <div class="container">
+    <h2>Secure Login</h2>
+
+    <div id="step1">
+      <input type="text" id="auth-username" placeholder="Username" />
+      <input type="password" id="auth-password" placeholder="Password" />
+      <label><input type="checkbox" id="toggle-password" /> Show Password</label>
+      <div id="auth-error" class="error"></div>
+      <button onclick="start2FA()">Login</button>
+    </div>
+
+    <div id="step2" style="display: none;">
+      <p>Your 2FA code is: <strong id="code-display"></strong></p>
+      <input type="number" id="auth-code" placeholder="Enter 2FA code" />
+      <div id="code-error" class="error"></div>
+      <button onclick="verify2FA()">Verify</button>
+    </div>
+
+    <!-- Dev-only reset button -->
+    <button onclick="resetAuth()" style="margin-top:20px;">Dev Reset</button>
+  </div>
 </body>
 </html>

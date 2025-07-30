@@ -1,40 +1,13 @@
-const ORIGINAL_USERNAME = "user";
-const ORIGINAL_PASSWORD = "secure123";
-const MAX_ATTEMPTS_BEFORE_LOCK = 4;
-const MAX_TOTAL_ATTEMPTS = 8;
+const VALID_USERNAME = "user";
+const VALID_PASSWORD = "secure123";
 let generatedCode = "";
 
-// Utility to generate username/password combo
-function generateCredentials() {
-  const rand = Math.random().toString(36).substring(2, 8);
-  return {
-    username: "user_" + rand,
-    password: "pass_" + rand,
-  };
-}
-
-function getStoredCredentials() {
-  const data = localStorage.getItem("dynamicCredentials");
-  return data ? JSON.parse(data) : null;
-}
-
-function storeCredentials(credentials) {
-  localStorage.setItem("dynamicCredentials", JSON.stringify(credentials));
-  localStorage.setItem("credTime", Date.now().toString());
-}
-
-function credentialsExpired() {
-  const storedTime = parseInt(localStorage.getItem("credTime"));
-  return !storedTime || Date.now() - storedTime > 15 * 60 * 1000;
-}
-
-// 24-hour login memory
 document.addEventListener("DOMContentLoaded", () => {
   const lockUntil = parseInt(localStorage.getItem("lockoutUntil"));
   const now = Date.now();
 
-  if (lockUntil && now < lockUntil) {
-    alert("Login locked due to multiple failed attempts. Try again later.");
+  if (lockUntil && now > Date.now()) {
+    alert("Login is locked. Please wait before trying again.");
     disableLogin();
     return;
   }
@@ -44,10 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "../index.html";
   }
 
-  document.getElementById("toggle-password").addEventListener("change", (e) => {
-    const pwdInput = document.getElementById("auth-password");
-    pwdInput.type = e.target.checked ? "text" : "password";
-  });
+  const pwdToggle = document.getElementById("toggle-password");
+  if (pwdToggle) {
+    pwdToggle.addEventListener("change", (e) => {
+      const pwdInput = document.getElementById("auth-password");
+      if (pwdInput) {
+        pwdInput.type = e.target.checked ? "text" : "password";
+      }
+    });
+  }
 });
 
 function start2FA() {
@@ -58,86 +36,72 @@ function start2FA() {
   const totalFails = parseInt(localStorage.getItem("totalFails") || "0");
   const sessionFails = parseInt(localStorage.getItem("sessionFails") || "0");
 
-  // Check lockout
-  const now = Date.now();
-  const lockUntil = parseInt(localStorage.getItem("lockoutUntil") || "0");
-  if (now < lockUntil) {
-    alert("You are locked out. Try again later.");
+  if (totalFails >= 8) {
+    localStorage.setItem("lockoutUntil", Date.now() + 24 * 60 * 60 * 1000);
+    alert("Too many failed attempts. Try again in 24 hours.");
     disableLogin();
     return;
   }
 
-  // Validate against credentials
-  const dynamicCreds = getStoredCredentials();
-  const validCreds = credentialsExpired() ? null : dynamicCreds;
+  if (sessionFails >= 4) {
+    localStorage.setItem("lockoutUntil", Date.now() + 15 * 60 * 1000);
+    alert("Too many failed attempts. Try again in 15 minutes.");
+    disableLogin();
+    return;
+  }
 
-  const isOriginal = user === ORIGINAL_USERNAME && pass === ORIGINAL_PASSWORD;
-  const isGenerated = validCreds && user === validCreds.username && pass === validCreds.password;
-
-  if (isOriginal || isGenerated) {
+  if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
+    errorDiv.textContent = "";
     localStorage.setItem("sessionFails", "0");
-
     generatedCode = String(Math.floor(100000 + Math.random() * 900000));
-    document.getElementById("code-display").textContent = generatedCode;
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "block";
-    errorDiv.textContent = "";
+    document.getElementById("code-display").textContent = generatedCode;
   } else {
-    let newSessionFails = sessionFails + 1;
-    let newTotalFails = totalFails + 1;
-
-    localStorage.setItem("sessionFails", newSessionFails.toString());
-    localStorage.setItem("totalFails", newTotalFails.toString());
-
-    if (newSessionFails >= MAX_ATTEMPTS_BEFORE_LOCK && newTotalFails < MAX_TOTAL_ATTEMPTS) {
-      const lockTime = Date.now() + 15 * 60 * 1000;
-      localStorage.setItem("lockoutUntil", lockTime.toString());
-      alert("Too many failed attempts. Try again in 15 minutes.");
-      disableLogin();
-    } else if (newTotalFails >= MAX_TOTAL_ATTEMPTS) {
-      const lockTime = Date.now() + 24 * 60 * 60 * 1000;
-      localStorage.setItem("lockoutUntil", lockTime.toString());
-      alert("Too many failed attempts. You are locked out for 24 hours.");
-      disableLogin();
-    } else {
-      errorDiv.textContent = "Invalid credentials.";
-    }
+    errorDiv.textContent = "Invalid username or password.";
+    localStorage.setItem("sessionFails", sessionFails + 1);
+    localStorage.setItem("totalFails", totalFails + 1);
   }
 }
 
 function verify2FA() {
-  const inputCode = document.getElementById("auth-code").value.trim();
-  const codeError = document.getElementById("code-error");
+  const codeInput = document.getElementById("auth-code").value.trim();
+  const errorDiv = document.getElementById("code-error");
 
-  if (inputCode === generatedCode) {
-    codeError.textContent = "";
-    localStorage.setItem("authTime", Date.now().toString());
+  if (codeInput === generatedCode) {
+    errorDiv.textContent = "";
+    const now = Date.now();
+    localStorage.setItem("authTime", now.toString());
 
-    // Generate new credentials every 15 mins
-    const newCreds = generateCredentials();
-    storeCredentials(newCreds);
+    // Generate temporary credentials
+    const newUser = "user" + Math.floor(1000 + Math.random() * 9000);
+    const newPass = "pass" + Math.floor(1000 + Math.random() * 9000);
+    localStorage.setItem("tempUser", newUser);
+    localStorage.setItem("tempPass", newPass);
+    localStorage.setItem("tempUserExpires", now + 15 * 60 * 1000);
 
-    alert(`New login credentials:\nUsername: ${newCreds.username}\nPassword: ${newCreds.password}`);
-
+    alert(`Success! New temporary credentials:\nUsername: ${newUser}\nPassword: ${newPass}`);
     window.location.href = "../index.html";
   } else {
-    codeError.textContent = "Incorrect code.";
+    errorDiv.textContent = "Incorrect 2FA code.";
   }
 }
 
 function disableLogin() {
-  document.getElementById("login-btn").disabled = true;
-  document.getElementById("auth-username").disabled = true;
-  document.getElementById("auth-password").disabled = true;
+  const inputs = document.querySelectorAll("input");
+  const buttons = document.querySelectorAll("button");
+  inputs.forEach(input => input.disabled = true);
+  buttons.forEach(btn => btn.disabled = true);
 }
 
 function resetAuth() {
   localStorage.removeItem("authTime");
-  localStorage.removeItem("lockoutUntil");
   localStorage.removeItem("sessionFails");
   localStorage.removeItem("totalFails");
-  localStorage.removeItem("dynamicCredentials");
-  localStorage.removeItem("credTime");
-  alert("Login reset. You can try again.");
-  location.reload();
+  localStorage.removeItem("lockoutUntil");
+  localStorage.removeItem("tempUser");
+  localStorage.removeItem("tempPass");
+  localStorage.removeItem("tempUserExpires");
+  alert("Auth reset complete.");
+  window.location.reload();
 }
