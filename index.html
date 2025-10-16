@@ -7,12 +7,7 @@
 
     <!-- Put this in <head>, before styles or anything else -->
 <script>
-  const authTime = localStorage.getItem("authTime");
-  const now = Date.now();
 
-  if (!authTime || now - +authTime > 24 * 60 * 60 * 1000) {
-    window.location.href = "/Cybersecurity-Portfolio/auth-simulation/index.html";
-  }
 </script>
 
 
