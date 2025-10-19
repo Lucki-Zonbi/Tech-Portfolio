@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About My Software Engineering Journey</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Fade-in animation for container */
+    .container {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .journey ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+
+    .journey li {
+      margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+
+    .journey li:hover {
+      transform: scale(1.05);
+      color: var(--second-bg-color);
+    }
+
+    .intro, .conclusion {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: var(--main-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--second-bg-color);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>About My Software Engineering Journey</h2>
+
+    <p class="intro">
+      Welcome! This section provides a concise overview of my software engineering projects and experiences.
+    </p>
+
+    <div class="journey">
+      <ul>
+        <li>Full-stack Web Applications using HTML, CSS, JavaScript, Node.js, Express.js, PostgreSQL</li>
+        <li>RESTful APIs and integration with React Frontend</li>
+        <li>Responsive Web Design and UI/UX best practices</li>
+        <li>Cybersecurity integrations: authentication simulations and 2FA demonstrations</li>
+        <li>Projects completed for Udemy & freeCodeCamp full-stack certifications</li>
+        <li>Portfolio showcase: interactive demos, resume anchoring, and project highlights</li>
+      </ul>
+    </div>
+
+    <p class="conclusion">
+      Thank you for exploring my journey! Click below to return to the main portfolio.
+    </p>
+
+    <div class="btn-box">
+      <a href="../index.html" class="btn">Back to Portfolio</a>
+    </div>
+  </div>
+</body>
+</html>

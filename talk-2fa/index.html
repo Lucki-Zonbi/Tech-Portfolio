@@ -2,56 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2FA Simulation – 2FA Touch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2FA Simulation - Talk</title>
+
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+
+  <style>
+    :root {
+      --bg-color: #09011b;
+      --second-bg-color: #f35e8f;
+      --third-bg-color: rgb(252, 39, 120);
+      --fourth-bg-color: rgb(3, 3, 37);
+      --text-color: #ededed;
+      --second-text-color: rgb(136, 8, 57);
+      --main-color: #822794;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      background-color: var(--fourth-bg-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--main-color);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: var(--main-color);
+      margin-bottom: 20px;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: gray;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: not-allowed;
+      margin-top: 10px;
+    }
+
+    button:enabled {
+      background-color: var(--second-bg-color);
+      cursor: pointer;
+    }
+
+    #password-message {
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+
+    #toggle-password {
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container" id="login-section">
-    <h2>Simulated Secure Login</h2>
-    <p>Username: <strong>User1</strong></p>
+  <div class="container">
+    <h2>2FA Simulation - Talk</h2>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Enter password" />
-    <label><input type="checkbox" id="toggle-password"> Show Password</label>
+    <input type="password" id="auth-password" placeholder="Create Password">
+    <input type="password" id="auth-confirm-password" placeholder="Confirm Password">
 
-    <small class="note">
-      Password must include 1 uppercase letter, 1 lowercase letter, 1 number,
-      1 special character, and be 8–10 characters long.
-    </small>
+    <div id="password-message"></div>
 
-    <div id="auth-error" class="error"></div>
-    <button id="login-btn">Login</button>
+    <div>
+      <input type="checkbox" id="toggle-password"> Show Password
+    </div>
 
-    <p class="gen-pass">
-      <button id="generate-pass-btn">Generate Random Password</button>
-      <span id="generated-password"></span>
+    <button id="sign-in-btn">Sign In</button>
+
+    <p style="margin-top:15px; font-size:0.85em; color:var(--second-text-color);">
+      Password requirements: 1 uppercase, 1 lowercase, 1 number, 1 special character, 8–10 characters.
     </p>
-  </div>
-
-  <!-- Step 2 - 2FA -->
-  <div class="container" id="verify-section" style="display:none;">
-    <h2>Two-Factor Authentication</h2>
-    <p>Enter the 6-digit code sent to your simulated device:</p>
-    <div class="code-box" id="code-display"></div>
-    <input type="text" id="auth-code" maxlength="6" placeholder="Enter code" />
-    <div id="code-error" class="error"></div>
-    <button id="verify-btn">Verify</button>
-  </div>
-
-  <!-- About Page -->
-  <div class="container" id="about-section" style="display:none;">
-    <h2>About My Software Engineering Journey</h2>
-    <p>After completing cybersecurity training and hands-on development experience, I expanded into full-stack software engineering. My portfolio demonstrates:</p>
-    <ul>
-      <li>Dynamic JavaScript-based authentication and 2FA simulations.</li>
-      <li>Frontend design using HTML, CSS, and responsive layout.</li>
-      <li>Secure login session handling with <code>localStorage</code>.</li>
-      <li>Custom GitHub Pages deployment and version control via Git.</li>
-      <li>API server development for youth resident calendar management.</li>
-    </ul>
-    <p>Thank you for exploring my 2FA interactive simulation, please feel free to contact me to collaborate or learn more!</p>
   </div>
 </body>
 </html>
