@@ -1,0 +1,90 @@
+:root {
+  --bg-color: #09011b;
+  --second-bg-color: #f35e8f;
+  --third-bg-color: rgb(252, 39, 120);
+  --fourth-bg-color: rgb(3, 3, 37);
+  --text-color: #ededed;
+  --second-text-color: rgb(136, 8, 57);
+  --main-color: #822794;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--fourth-bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--main-color);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--main-color);
+}
+
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--third-bg-color);
+}
+
+.error {
+  color: #f35e8f;
+  font-size: 0.9em;
+}
+
+.note {
+  font-size: 0.8em;
+  color: var(--second-text-color);
+}
+
+.gen-pass {
+  margin-top: 10px;
+}
+
+#generated-password {
+  display: block;
+  margin-top: 5px;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.code-box {
+  margin: 10px auto;
+  background-color: var(--second-bg-color);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  width: fit-content;
+}

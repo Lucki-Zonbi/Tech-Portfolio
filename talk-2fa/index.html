@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2FA Simulation – Let's Talk</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container" id="login-section">
+    <h2>Simulated Secure Login</h2>
+    <p>Username: <strong>User1</strong></p>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" />
+    <label><input type="checkbox" id="toggle-password"> Show Password</label>
+
+    <small class="note">
+      Password must include 1 uppercase letter, 1 lowercase letter, 1 number,
+      1 special character, and be 8–10 characters long.
+    </small>
+
+    <div id="auth-error" class="error"></div>
+    <button id="login-btn">Login</button>
+
+    <p class="gen-pass">
+      <button id="generate-pass-btn">Generate Random Password</button>
+      <span id="generated-password"></span>
+    </p>
+  </div>
+
+  <!-- Step 2 - 2FA -->
+  <div class="container" id="verify-section" style="display:none;">
+    <h2>Two-Factor Authentication</h2>
+    <p>Enter the 6-digit code sent to your simulated device:</p>
+    <div class="code-box" id="code-display"></div>
+    <input type="text" id="auth-code" maxlength="6" placeholder="Enter code" />
+    <div id="code-error" class="error"></div>
+    <button id="verify-btn">Verify</button>
+  </div>
+
+  <!-- About Page -->
+  <div class="container" id="about-section" style="display:none;">
+    <h2>About My Software Engineering Journey</h2>
+    <p>After completing cybersecurity training and hands-on development experience, I expanded into full-stack software engineering. My portfolio demonstrates:</p>
+    <ul>
+      <li>Dynamic JavaScript-based authentication and 2FA simulations.</li>
+      <li>Frontend design using HTML, CSS, and responsive layout.</li>
+      <li>Secure login session handling with <code>localStorage</code>.</li>
+      <li>Custom GitHub Pages deployment and version control via Git.</li>
+      <li>API server development for youth resident calendar management.</li>
+    </ul>
+    <p>Thank you for exploring my 2FA interactive simulation, please feel free to contact me to collaborate or learn more!</p>
+  </div>
+</body>
+</html>
