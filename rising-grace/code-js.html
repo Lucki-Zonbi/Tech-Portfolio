@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rising Grace JavaScript Walkthrough</title><link rel="stylesheet" href="style.css"></head><body><header class="showcase-header"><a href="index.html" class="back-link">← Back to Rising Grace Showcase</a><h1>JavaScript Walkthrough</h1><p>How frontend logic handles authentication, protected API requests, questionnaire scoring, payment formatting, and Ariez monitoring.</p></header><main><section class="snippet-card"><h2>JWT Token Headers</h2><pre><code>function getToken() {
+  return localStorage.getItem("token");
+}
+
+function authHeaders(extra = {}) {
+  return {
+    ...extra,
+    Authorization: `Bearer ${getToken()}`
+  };
+}</code></pre><p>This pattern attaches the JWT to protected backend requests so admin data and user workflows stay behind authentication.</p><img class="mini-shot" src="images/admin-panel.png" alt="Admin panel screenshot"></section><section class="snippet-card"><h2>Dynamic Questionnaire Buttons</h2><pre><code>document.querySelectorAll(".scale").forEach(scale =&gt; {
+  const question = scale.dataset.question;
+
+  for (let i = 1; i &lt;= 10; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    btn.classList.add("scale-btn");
+    scale.appendChild(btn);
+  }
+});</code></pre><p>JavaScript generates scale buttons automatically, making the assessment easier to maintain and expand.</p><img class="mini-shot" src="images/questionnaire.png" alt="Questionnaire screenshot"></section><section class="snippet-card"><h2>Payment Input Formatting</h2><pre><code>function formatCardNumber(value) {
+  const cleaned = String(value || "").replace(/\D/g, "").slice(0, 16);
+  return cleaned.match(/.{1,4}/g)?.join(" ") || cleaned;
+}</code></pre><p>The payment page improves user experience by formatting card input before the Stripe workflow is triggered.</p><img class="mini-shot" src="images/payment.png" alt="Payment screenshot"></section><section class="snippet-card"><h2>Security Monitoring Concept</h2><pre><code>const security = {
+  sessionStart: Date.now(),
+  securityLog: [],
+
+  logEvent(eventType, details) {
+    const entry = {
+      time: new Date().toISOString(),
+      event: eventType,
+      details: details
+    };
+    this.securityLog.push(entry);
+  }
+};</code></pre><p>This creates a custom monitoring layer for security events, session tracking, and admin visibility.</p><img class="mini-shot" src="images/security-monitoring.png" alt="Security screenshot"></section></main><script src="script.js"></script></body></html>

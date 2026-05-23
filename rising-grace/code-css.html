@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rising Grace CSS Walkthrough</title><link rel="stylesheet" href="style.css"></head><body><header class="showcase-header"><a href="index.html" class="back-link">← Back to Rising Grace Showcase</a><h1>CSS Walkthrough</h1><p>This demonstrates how the styling supports branding, responsive layout, dark/lilac theme, dashboard cards, and payment UI.</p></header><main><section class="snippet-card"><h2>Global Theme Foundation</h2><pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #C8A2C8;
+  min-height: 100vh;
+}</code></pre><p>The project uses a consistent reset and lilac brand foundation across public-facing pages.</p><img class="mini-shot" src="images/home.png" alt="Home screenshot"></section><section class="snippet-card"><h2>Responsive Navigation</h2><pre><code>.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(200, 162, 200, 0.65);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre><p>The navigation uses a fixed glass-style header to keep movement between pages simple and consistent.</p><img class="mini-shot" src="images/login.png" alt="Login screenshot"></section><section class="snippet-card"><h2>Payment Form Visual System</h2><pre><code>.payment-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 18px;
+}</code></pre><p>The payment screen uses large form spacing and dark UI contrast to make checkout feel separate from regular content.</p><img class="mini-shot" src="images/payment.png" alt="Payment screenshot"></section></main><script src="script.js"></script></body></html>

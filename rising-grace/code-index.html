@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rising Grace HTML Walkthrough</title><link rel="stylesheet" href="style.css"></head><body><header class="showcase-header"><a href="index.html" class="back-link">← Back to Rising Grace Showcase</a><h1>index.html Walkthrough</h1><p>How the HTML creates the page structure for navigation, hero branding, forms, dashboards, and protected workflow pages.</p></header><main><section class="snippet-card"><h2>Landing Page Structure</h2><pre><code>&lt;header class="navbar"&gt;
+  &lt;div class="logo"&gt;Rising Grace Life Coaching&lt;/div&gt;
+  &lt;nav&gt;
+    &lt;ul class="nav-links" id="nav-links"&gt;
+      &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="about/about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="contact/contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="auth/login.html" class="login-btn"&gt;Login&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre><p>This shows the public-facing navigation structure before users enter the authenticated coaching platform.</p><img class="mini-shot" src="images/home.png" alt="Home screenshot"></section><section class="snippet-card"><h2>Dashboard Card Layout</h2><pre><code>&lt;div class="dashboard-card"&gt;
+  &lt;h2&gt;User Profile&lt;/h2&gt;
+  &lt;div id="userInfo"&gt;Loading user information...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="dashboard-card"&gt;
+  &lt;h2&gt;Ariez Security Monitor&lt;/h2&gt;
+  &lt;div id="securityEvents"&gt;Loading security activity...&lt;/div&gt;
+&lt;/div&gt;</code></pre><p>The dashboard uses reusable cards so profile, security events, readiness, and session information can be loaded dynamically.</p><img class="mini-shot" src="images/ariez-monitoring.png" alt="Ariez dashboard screenshot"></section><section class="snippet-card"><h2>Questionnaire Scale Container</h2><pre><code>&lt;div class="scale" data-question="balance"&gt;&lt;/div&gt;</code></pre><p>The empty scale container is filled by JavaScript, which generates the 1–10 buttons dynamically.</p><img class="mini-shot" src="images/questionnaire.png" alt="Questionnaire screenshot"></section></main><script src="script.js"></script></body></html>
