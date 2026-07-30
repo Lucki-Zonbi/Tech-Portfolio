@@ -140,6 +140,8 @@ main {
     font-size: 1.8rem;
     line-height: 1.7;
     color: #eadff0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .contact-strip {
@@ -268,6 +270,8 @@ main {
     font-size: 1.55rem;
     line-height: 1.75;
     color: #f7edf7;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .featured-card p + p {
@@ -313,6 +317,12 @@ main {
     color: var(--second-bg-color);
     font-weight: 700;
     margin-bottom: .8rem;
+}
+
+.role-type {
+    font-size: 1.4rem;
+    color: #d9cce8;
+    font-weight: 500;
 }
 
 .experience-card h4,

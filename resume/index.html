@@ -1,235 +1,719 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Nicholson | Interactive Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+```
+<meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+>
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Interactive software development resume for Christopher M. Nicholson, an AI-native full-stack developer with experience in secure web application development."
+>
+
+<title>Christopher Nicholson | Interactive Resume</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+>
+```
+
 </head>
+
 <body>
-    <header class="resume-header">
-        <a href="../index.html" class="logo">Christopher <span>N.</span></a>
 
-        <nav class="resume-nav">
-            <a href="#summary">Summary</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="../index.html" class="nav-btn">Back to Portfolio</a>
-        </nav>
+```
+<!-- =========================
+     RESUME HEADER
+========================== -->
+<header class="resume-header">
 
-        <i class='bx bx-menu' id="menu-icon"></i>
-    </header>
+    <a href="../index.html" class="logo">
+        Christopher <span>N.</span>
+    </a>
 
-    <main>
-        <section class="resume-hero" id="top">
-            <div class="hero-content">
-                <p class="eyebrow">Thank You for Visiting</p>
-                <h1>Christopher M. Nicholson</h1>
-                <h2>Junior Full Stack Developer</h2>
-                <p class="hero-text">
-                    Security-focused software developer with hands-on experience building full-stack web applications, authentication workflows, admin dashboards, and production-style portfolio projects.
-                </p>
+    <nav class="resume-nav" aria-label="Resume navigation">
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
 
-                <div class="contact-strip">
-                    <span><i class='bx bx-map'></i> Southfield, MI</span>
-                    <span><i class='bx bx-phone'></i> +1 (734) 636-4994</span>
-                </div>
+        <a href="../index.html" class="nav-btn">
+            Back to Portfolio
+        </a>
+    </nav>
 
-                <div class="action-row">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=christopher.zonbi@gmail.com" target="_blank" class="resume-btn">
-                        <i class='bx bxl-gmail'></i> Email Me
-                    </a>
-                    <a href="https://www.linkedin.com/in/christopher-nicholson-insomnia/" target="_blank" class="resume-btn secondary">
-                        <i class='bx bxl-linkedin-square'></i> LinkedIn
-                    </a>
-                    <a href="../index.html#home" class="resume-btn secondary">
-                        <i class='bx bx-home'></i> Dev Portfolio
-                    </a>
-                </div>
+    <i
+        class="bx bx-menu"
+        id="menu-icon"
+        aria-label="Open navigation menu"
+    ></i>
+
+</header>
+
+
+<main>
+
+    <!-- =========================
+         RESUME HERO
+    ========================== -->
+    <section class="resume-hero" id="top">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                Interactive Resume
+            </p>
+
+            <h1>Christopher M. Nicholson</h1>
+
+            <h2>AI-Native Full-Stack Developer</h2>
+
+            <p class="hero-text">
+                AI-native full-stack developer with hands-on experience
+                designing, developing, testing, and documenting web
+                applications for real clients. Skilled in translating
+                business requirements into secure, responsive application
+                features through sprint-based development.
+            </p>
+
+            <div class="contact-strip">
+
+                <span>
+                    <i class="bx bx-map"></i>
+                    Southfield, MI
+                </span>
+
+                <span>
+                    <i class="bx bx-phone"></i>
+                    +1 (734) 636-4994
+                </span>
+
+                <span>
+                    <i class="bx bx-envelope"></i>
+                    christopher.zonbi@gmail.com
+                </span>
+
             </div>
-        </section>
 
-        <section class="resume-section" id="summary">
-            <h2 class="heading">Professional <span>Summary</span></h2>
-            <div class="resume-card featured-card">
-                <p>
-                    Motivated Junior Full Stack Developer with hands-on experience designing and developing modern web applications using JavaScript, Node.js, Express, MongoDB, HTML, and CSS. Between December 2024 and May 2026, independently built a software developer portfolio website featuring a simulated 2FA authentication system, along with a life coaching web application with authentication, scheduling, payment integration, and admin dashboard functionality.
-                </p>
-                <p>
-                    Skilled in troubleshooting, debugging, API integration, frontend/backend development, and creating user-focused web experiences. Recognized for strong communication, organization, problem-solving, and the ability to quickly learn and apply new technologies in fast-paced development environments.
-                </p>
+            <div class="action-row">
+
+                <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=christopher.zonbi@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resume-btn"
+                >
+                    <i class="bx bxl-gmail"></i>
+                    Email Me
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/christopher-nicholson-insomnia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resume-btn secondary"
+                >
+                    <i class="bx bxl-linkedin-square"></i>
+                    LinkedIn
+                </a>
+
+                <a
+                    href="../index.html#home"
+                    class="resume-btn secondary"
+                >
+                    <i class="bx bx-home"></i>
+                    Dev Portfolio
+                </a>
+
             </div>
-        </section>
 
-        <section class="resume-section alt-section" id="skills">
-            <h2 class="heading">Relevant Skills & <span>Expertise</span></h2>
+        </div>
 
-            <div class="skills-grid">
-                <div class="resume-card skill-card">
-                    <h3><i class='bx bx-code-alt'></i> Software Development</h3>
+    </section>
+
+
+    <!-- =========================
+         PROFESSIONAL SUMMARY
+    ========================== -->
+    <section class="resume-section" id="summary">
+
+        <h2 class="heading">
+            Professional <span>Summary</span>
+        </h2>
+
+        <div class="resume-card featured-card">
+
+            <p>
+                AI-native full-stack developer with hands-on experience
+                designing, developing, testing, and documenting web
+                applications for real clients. Skilled in JavaScript,
+                Node.js, Express, MongoDB Atlas, HTML5, CSS3, REST APIs,
+                JWT authentication, Git, GitHub, and Postman.
+            </p>
+
+            <p>
+                Experienced in translating business requirements into
+                secure, responsive application features through
+                sprint-based development. Brings an additional foundation
+                in cybersecurity, troubleshooting, access control, and
+                security-focused software development.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TECHNICAL SKILLS
+    ========================== -->
+    <section class="resume-section alt-section" id="skills">
+
+        <h2 class="heading">
+            Technical <span>Skills</span>
+        </h2>
+
+        <div class="skills-grid">
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-code-alt"></i>
+                    Languages
+                </h3>
+
+                <ul>
+                    <li>JavaScript ES6+</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>SQL</li>
+                    <li>Introductory Python</li>
+                </ul>
+
+            </article>
+
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-server"></i>
+                    Back-End Development
+                </h3>
+
+                <ul>
+                    <li>Node.js</li>
+                    <li>Express.js</li>
+                    <li>REST APIs</li>
+                    <li>JWT authentication</li>
+                    <li>bcryptjs</li>
+                    <li>Mongoose</li>
+                </ul>
+
+            </article>
+
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-data"></i>
+                    Databases
+                </h3>
+
+                <ul>
+                    <li>MongoDB Atlas</li>
+                    <li>MongoDB data modeling</li>
+                    <li>Mongoose schemas</li>
+                    <li>BigQuery</li>
+                </ul>
+
+            </article>
+
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-wrench"></i>
+                    Development Tools
+                </h3>
+
+                <ul>
+                    <li>Git and GitHub</li>
+                    <li>Postman</li>
+                    <li>Visual Studio Code</li>
+                    <li>Chrome DevTools</li>
+                    <li>Linux command line</li>
+                </ul>
+
+            </article>
+
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-shield-quarter"></i>
+                    Application Security
+                </h3>
+
+                <ul>
+                    <li>Secure authentication workflows</li>
+                    <li>Protected routes</li>
+                    <li>Role-based access control</li>
+                    <li>Request rate limiting</li>
+                    <li>Security monitoring</li>
+                    <li>Vulnerability analysis</li>
+                </ul>
+
+            </article>
+
+
+            <article class="resume-card skill-card">
+
+                <h3>
+                    <i class="bx bx-bot"></i>
+                    Development Practices
+                </h3>
+
+                <ul>
+                    <li>AI-assisted software development</li>
+                    <li>Responsive web design</li>
+                    <li>API integration</li>
+                    <li>Structured debugging</li>
+                    <li>Sprint-based development</li>
+                    <li>Requirements gathering</li>
+                </ul>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFESSIONAL EXPERIENCE
+    ========================== -->
+    <section class="resume-section" id="experience">
+
+        <h2 class="heading">
+            Professional <span>Experience</span>
+        </h2>
+
+        <div class="resume-timeline">
+
+            <!-- MEGA FINANCIAL -->
+            <div class="timeline-item">
+
+                <article class="resume-card experience-card">
+
+                    <div class="card-date">
+                        <i class="bx bxs-calendar"></i>
+                        06/2026 – Present
+                    </div>
+
+                    <h3>
+                        AI-Native Full-Stack Developer
+                        <span class="role-type">(Contract)</span>
+                    </h3>
+
+                    <h4>
+                        Mega Financial | Eastpointe, MI
+                    </h4>
+
                     <ul>
-                        <li>JavaScript, HTML, CSS</li>
-                        <li>Node.js, Express, REST APIs</li>
-                        <li>MongoDB/Mongoose</li>
-                        <li>Frontend/backend integration</li>
+                        <li>
+                            Design and develop a production-oriented
+                            tax-service web application using JavaScript,
+                            Node.js, Express, MongoDB Atlas, Mongoose,
+                            HTML5, and CSS3.
+                        </li>
+
+                        <li>
+                            Collaborate directly with the client to gather
+                            requirements, define workflows, prioritize
+                            features, and translate business needs into
+                            technical implementation plans.
+                        </li>
+
+                        <li>
+                            Build secure user registration, JWT
+                            authentication, protected routes, client
+                            dashboards, tax-intake workflows, appointment
+                            scheduling, and personalized document-checklist
+                            functionality.
+                        </li>
+
+                        <li>
+                            Implement security controls including bcrypt
+                            password hashing, request rate limiting,
+                            Helmet middleware, role-based access
+                            foundations, request-body restrictions, and
+                            protected API endpoints.
+                        </li>
+
+                        <li>
+                            Test and debug REST APIs using Postman, browser
+                            developer tools, server logs, MongoDB records,
+                            and targeted command-line checks.
+                        </li>
+
+                        <li>
+                            Maintain sprint logs, implementation records,
+                            source control, and GitHub commit history while
+                            incrementally preparing the platform for the
+                            2027 tax season.
+                        </li>
                     </ul>
-                </div>
 
-                <div class="resume-card skill-card">
-                    <h3><i class='bx bx-bot'></i> AI-Assisted Development</h3>
-                    <ul>
-                        <li>AI-assisted debugging workflows</li>
-                        <li>Architecture planning support</li>
-                        <li>Code review and error tracing</li>
-                        <li>Prompt-guided development tasks</li>
-                    </ul>
-                </div>
-
-                <div class="resume-card skill-card">
-                    <h3><i class='bx bx-shield-quarter'></i> Security & Cybersecurity</h3>
-                    <ul>
-                        <li>JWT authentication systems</li>
-                        <li>Protected routes and sessions</li>
-                        <li>Linux, SQL BigQuery, SIEM concepts</li>
-                        <li>Threat detection and monitoring fundamentals</li>
-                    </ul>
-                </div>
-
-                <div class="resume-card skill-card">
-                    <h3><i class='bx bx-support'></i> IT Support</h3>
-                    <ul>
-                        <li>Hardware and software support</li>
-                        <li>User access and authentication issues</li>
-                        <li>Workstation connectivity</li>
-                        <li>Tier 1 helpdesk and field support</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="resume-section" id="projects">
-            <h2 class="heading">Dev <span>Projects</span></h2>
-
-            <div class="timeline-grid">
-                <article class="resume-card project-card">
-                    <div class="card-date"><i class='bx bxs-calendar'></i> Full-Stack Project</div>
-                    <h3>Life Coaching Web App</h3>
-                    <p>
-                        Designed and developed a full-stack life coaching web application using Node.js, Express, MongoDB, HTML, CSS, and JavaScript. Implemented JWT authentication, questionnaire workflows, scheduling and payment system integrations, admin dashboard functionality, and responsive frontend interfaces.
-                    </p>
-                    <p>
-                        Built protected routes, session management, role-based administrative controls, analytics dashboards, scheduling workflows, and monitoring features for production-style application behavior.
-                    </p>
                     <div class="tag-row">
-                        <span>Node.js</span><span>Express</span><span>MongoDB</span><span>JWT</span><span>Stripe</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB Atlas</span>
+                        <span>JWT</span>
+                        <span>Security</span>
                     </div>
-                    <a href="../rising-grace/index.html" class="text-link">View DEV Project Showcase <i class='bx bx-right-arrow-alt'></i></a>
+
                 </article>
 
-                <article class="resume-card project-card">
-                    <div class="card-date"><i class='bx bxs-calendar'></i> Portfolio Project</div>
-                    <h3>Software Developer Portfolio Website</h3>
-                    <p>
-                        Developed and deployed a professional software developer portfolio website featuring interactive authentication simulations, responsive UI design, GitHub Pages deployment, and secure frontend development practices using HTML, CSS, JavaScript, and Git version control.
-                    </p>
+            </div>
+
+
+            <!-- SPOKEN PRODUCTIONS -->
+            <div class="timeline-item">
+
+                <article class="resume-card experience-card">
+
+                    <div class="card-date">
+                        <i class="bx bxs-calendar"></i>
+                        01/2026 – 05/2026
+                    </div>
+
+                    <h3>
+                        AI-Native Full-Stack Developer
+                        <span class="role-type">(Contract)</span>
+                    </h3>
+
+                    <h4>
+                        Spoken Productions | Detroit, MI
+                    </h4>
+
+                    <ul>
+                        <li>
+                            Designed and developed a full-stack
+                            life-coaching application using Node.js,
+                            Express, MongoDB, JavaScript, HTML, and CSS.
+                        </li>
+
+                        <li>
+                            Built JWT authentication, protected routes,
+                            role-based access controls, questionnaire
+                            workflows, scheduling features, payment
+                            integrations, administrative dashboards,
+                            analytics, and monitoring functionality.
+                        </li>
+
+                        <li>
+                            Designed REST API endpoints and MongoDB data
+                            models supporting client, scheduling,
+                            questionnaire, payment, and administrative
+                            workflows.
+                        </li>
+
+                        <li>
+                            Tested and debugged frontend-to-backend
+                            communication using Postman, browser developer
+                            tools, application logs, and MongoDB Atlas.
+                        </li>
+
+                        <li>
+                            Managed requirements, sprint documentation,
+                            feature updates, and client communication
+                            throughout development.
+                        </li>
+                    </ul>
+
                     <div class="tag-row">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span><span>2FA Simulation</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>REST APIs</span>
+                        <span>JWT</span>
+                        <span>Postman</span>
                     </div>
-                    <a href="../index.html#home" class="text-link">Back to Main Portfolio <i class='bx bx-right-arrow-alt'></i></a>
-                </article>
-            </div>
-        </section>
 
-        <section class="resume-section alt-section" id="experience">
-            <h2 class="heading">Professional <span>Experience</span></h2>
-
-            <div class="resume-timeline">
-                <div class="timeline-item">
-                    <div class="resume-card experience-card">
-                        <div class="card-date"><i class='bx bxs-calendar'></i> 12/2025 - 01/2026</div>
-                        <h3>Field Service Technician I</h3>
-                        <h4>Cornerstone Tech Talent | Saline, MI</h4>
-                        <ul>
-                            <li>Managed access control and compliance while serving as a first point of contact for access and credentialing issues.</li>
-                            <li>Troubleshot basic technical problems including badge scanning issues, login errors, and user access concerns.</li>
-                            <li>Escalated complex issues to centralized support and maintained accurate records of support requests and resolutions.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="resume-card experience-card">
-                        <div class="card-date"><i class='bx bxs-calendar'></i> 02/2025 - 07/2025</div>
-                        <h3>Resident Advisor</h3>
-                        <h4>MCHS Family of Services | Redford, MI</h4>
-                        <ul>
-                            <li>Reinforced organizational skills, documentation accuracy, and professional communication in daily operations.</li>
-                            <li>Ensured compliance with policy guidelines and maintained a positive, supportive environment.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="resume-card experience-card">
-                        <div class="card-date"><i class='bx bxs-calendar'></i> 01/2024 - 12/2024</div>
-                        <h3>Youth Coach</h3>
-                        <h4>Vista Maria | Dearborn Heights, MI</h4>
-                        <ul>
-                            <li>Documented nightly observational logs, completed behavioral checklists, and maintained confidential files.</li>
-                            <li>Completed and filed incident reports while supporting coworkers with intranet-based documentation workflows.</li>
-                            <li>Reported maintenance requests using IssueTrack and assisted team leaders with operational communication.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="resume-section" id="education">
-            <h2 class="heading">Education & <span>Certifications</span></h2>
-
-            <div class="timeline-grid">
-                <article class="resume-card education-card">
-                    <div class="card-date"><i class='bx bxs-calendar'></i> Expected 12/2026</div>
-                    <h3>Full-Stack Web Development Certificate</h3>
-                    <h4>Udemy | Virtual</h4>
-                    <p>
-                        Hands-on training in front-end and back-end development, including HTML, CSS, JavaScript, Node.js, Express.js, EJS, React, Git, GitHub, database management, RESTful API design, authentication, and deployment workflows.
-                    </p>
-                </article>
-
-                <article class="resume-card education-card cert-highlight">
-                    <div class="card-date"><i class='bx bxs-calendar'></i> 08/2025</div>
-                    <h3>Google Cybersecurity Professional Certificate</h3>
-                    <h4>Merit America / Coursera | Virtual</h4>
-                    <p>
-                        Applied cybersecurity frameworks and controls in practical simulations, including security audits, vulnerability analysis, incident response, Linux, SQL, Python, SIEM tools, IDS, and network protocol analyzers.
-                    </p>
-                    <a href="https://www.credly.com/badges/e97507ad-c0df-4316-a603-48ec40ecb2b4/public_url" target="_blank" class="resume-btn cert-btn">
-                        <i class='bx bx-badge-check'></i> View Verified Credly Badge
+                    <a
+                        href="../rising-grace/index.html"
+                        class="text-link"
+                    >
+                        View Life-Coaching Project Showcase
+                        <i class="bx bx-right-arrow-alt"></i>
                     </a>
+
                 </article>
 
-                <article class="resume-card education-card">
-                    <div class="card-date"><i class='bx bxs-calendar'></i> 05/2024</div>
-                    <h3>Web Development HTML/CSS Certificate</h3>
-                    <h4>freeCodeCamp.org | Virtual</h4>
-                    <p>
-                        Completed responsive web design training focused on HTML, CSS, accessibility, layout structure, and responsive interface development.
-                    </p>
-                </article>
             </div>
-        </section>
-    </main>
 
-    <footer class="resume-footer">
-        <p>© 2026 Christopher Nicholson | Interactive Resume</p>
-        <a href="#top">Back to Top</a>
-    </footer>
 
-    <script src="script.js"></script>
+            <!-- CORNERSTONE -->
+            <div class="timeline-item">
+
+                <article class="resume-card experience-card">
+
+                    <div class="card-date">
+                        <i class="bx bxs-calendar"></i>
+                        12/2025 – 01/2026
+                    </div>
+
+                    <h3>Field Service Technician I</h3>
+
+                    <h4>
+                        Cornerstone Tech Talent | Saline, MI
+                    </h4>
+
+                    <ul>
+                        <li>
+                            Managed access control and compliance.
+                        </li>
+
+                        <li>
+                            Troubleshot basic technical problems,
+                            including badge-scanning and login errors.
+                        </li>
+
+                        <li>
+                            Escalated complex issues to centralized
+                            support according to standard procedures.
+                        </li>
+
+                        <li>
+                            Maintained accurate records of support
+                            requests and resolutions.
+                        </li>
+
+                        <li>
+                            Maintained accuracy in compliance and
+                            credential checks.
+                        </li>
+                    </ul>
+
+                    <div class="tag-row">
+                        <span>Access Control</span>
+                        <span>Technical Support</span>
+                        <span>Troubleshooting</span>
+                        <span>Documentation</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOFTWARE DEVELOPMENT PROJECTS
+    ========================== -->
+    <section class="resume-section alt-section" id="projects">
+
+        <h2 class="heading">
+            Software Development <span>Projects</span>
+        </h2>
+
+        <div class="timeline-grid">
+
+            <article class="resume-card project-card">
+
+                <div class="card-date">
+                    <i class="bx bxs-calendar"></i>
+                    12/2024 – Present
+                </div>
+
+                <h3>Software Developer Portfolio Website</h3>
+
+                <p>
+                    Developed and deployed a professional software
+                    developer portfolio website featuring interactive
+                    authentication simulations, responsive UI design,
+                    GitHub Pages deployment, and secure frontend
+                    development practices using HTML, CSS, JavaScript,
+                    and Git version control.
+                </p>
+
+                <div class="tag-row">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Git</span>
+                    <span>GitHub Pages</span>
+                    <span>2FA Simulation</span>
+                </div>
+
+                <a
+                    href="../index.html#home"
+                    class="text-link"
+                >
+                    View Main Portfolio
+                    <i class="bx bx-right-arrow-alt"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION AND CERTIFICATIONS
+    ========================== -->
+    <section class="resume-section" id="education">
+
+        <h2 class="heading">
+            Education & <span>Certifications</span>
+        </h2>
+
+        <div class="timeline-grid">
+
+            <!-- UDEMY -->
+            <article class="resume-card education-card">
+
+                <div class="card-date">
+                    <i class="bx bxs-calendar"></i>
+                    Expected 12/2026
+                </div>
+
+                <h3>
+                    Full-Stack Web Development Certificate
+                </h3>
+
+                <h4>
+                    Udemy | Virtual
+                </h4>
+
+                <ul>
+                    <li>
+                        Coursework covering HTML, CSS, JavaScript,
+                        Node.js, Express, EJS, React, Git, GitHub,
+                        databases, REST APIs, authentication, and
+                        deployment.
+                    </li>
+
+                    <li>
+                        Applying course concepts through independently
+                        developed and client-based full-stack
+                        applications.
+                    </li>
+                </ul>
+
+            </article>
+
+
+            <!-- GOOGLE CYBERSECURITY -->
+            <article class="resume-card education-card cert-highlight">
+
+                <div class="card-date">
+                    <i class="bx bxs-calendar"></i>
+                    08/2025
+                </div>
+
+                <h3>
+                    Google Cybersecurity Professional Certificate
+                </h3>
+
+                <h4>
+                    Merit America | Virtual
+                </h4>
+
+                <ul>
+                    <li>
+                        Applied cybersecurity frameworks and controls in
+                        real-world simulations, including security
+                        audits, vulnerability analysis, and incident
+                        response.
+                    </li>
+
+                    <li>
+                        Gained hands-on experience with Linux, SQL,
+                        Python, SIEM tools, intrusion detection systems,
+                        and network protocol analyzers.
+                    </li>
+                </ul>
+
+                <a
+                    href="https://www.credly.com/badges/e97507ad-c0df-4316-a603-48ec40ecb2b4/public_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resume-btn cert-btn"
+                >
+                    <i class="bx bx-badge-check"></i>
+                    View Verified Credly Badge
+                </a>
+
+            </article>
+
+
+            <!-- FREECODECAMP -->
+            <article class="resume-card education-card">
+
+                <div class="card-date">
+                    <i class="bx bxs-calendar"></i>
+                    05/2024
+                </div>
+
+                <h3>
+                    Web Development HTML/CSS Certificate
+                </h3>
+
+                <h4>
+                    freeCodeCamp.org | Virtual
+                </h4>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     RESUME FOOTER
+========================== -->
+<footer class="resume-footer">
+
+    <p>
+        © 2026 Christopher Nicholson | Interactive Resume
+    </p>
+
+    <a href="#top">
+        Back to Top
+    </a>
+
+</footer>
+
+
+<script src="script.js"></script>
+```
+
 </body>
 </html>
